@@ -1,0 +1,44 @@
+﻿@model IssueTracker.Models.Tickets
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-primary">Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WorkDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WorkDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+</div>
+<div>
+ <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary"> <i class="bi bi-pencil-square"></i> Edit</a>
+<br />
+<a class="btn btn-secondary btn-sm" asp-action="Index"><i class="bi bi-arrow-return-left"></i> &nbsp;Back to List</a>
+
+
+</div>

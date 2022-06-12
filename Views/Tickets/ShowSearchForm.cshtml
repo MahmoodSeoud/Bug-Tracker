@@ -1,0 +1,33 @@
+﻿
+
+<h4>Search for a Tickets</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ShowSearchResults">
+            <div class="form-group">
+                <p5>Subject</p5>
+                <label for="SearchSubject" class="control-label"></label>
+                <input name="SearchSubject" class="form-control" />
+            </div>
+            <div class="form-group">
+                <p5>Status</p5>
+                <label for="SearchStatus" class="control-label"></label>
+                <input name="SearchStatus" class="form-control" />
+            </div>
+            <div class="form-group">
+                <p5>Date</p5>
+                <label for="SearchDate" class="control-label"></label>
+                <input type="date" name="SearchDate" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-secondary btn-sm" asp-action="Index"><i class="bi bi-arrow-return-left"></i> &nbsp;Back to List</a>
+</div>
+

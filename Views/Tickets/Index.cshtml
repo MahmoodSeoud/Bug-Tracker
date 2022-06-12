@@ -1,0 +1,74 @@
+﻿@model IEnumerable<IssueTracker.Models.Tickets>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<partial name="_Notification" />
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+        <h2 class="text-primary">Tickets</h2>
+        <p> 
+             <a class="btn btn-primary" asp-area="" asp-controller="Tickets" asp-action="ShowSearchForm"> Search &nbsp; <i class="bi bi-search"></i></a>
+        </p>
+    </div>
+    <div class="col-6 text-end">
+    <p>
+       <a asp-action="Create" class="btn btn-primary"> <i class="bi bi-plus-circle"></i> &nbsp; Create New Ticket</a>
+    </p>
+
+    </div>
+</div>
+
+<br /> 
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                <div class="w-75 btn-group" role="group"> 
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"> <i class="bi bi-pencil-square"></i> Edit</a>
+                &nbsp;
+                &nbsp;
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary"> <i class="bi bi-three-dots-vertical"></i>Details</a> 
+                &nbsp;
+                &nbsp;
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="bi bi-trash3"></i>Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
