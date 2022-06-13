@@ -57,28 +57,15 @@
 
             <!-- Nav Item - Tickets Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="Tickets/Index">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Tickets</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
+                </a>      
             </li>
 
             <!-- Nav Item - Team -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="Tickets/Index.cshtml">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Team</span></a>
             </li>
@@ -314,24 +301,12 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
-
                     <!-- Content Row -->
-                    <div class="row">
-
-                 
-                       <main role="main" class="pb-3">
-                            @RenderBody()
-                        </main>
-            
-
-          
-                    </div>
+                         <div>
+                            <main role="main" class="pb-6">
+                                @RenderBody()
+                            </main>
+                        </div>
 
                     <!-- Content Row -->
 
@@ -637,7 +612,6 @@
     <div class="container">
 </body>
      
-    </div>
 
     <footer class="footer text-muted bg-dark">
         <div class="container">
