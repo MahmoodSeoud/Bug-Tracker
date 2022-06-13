@@ -12,10 +12,10 @@
     <!-- Custom fonts for this template-->
     <link href="~/Theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- CSS only -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"> 
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <!-- Custom styles for this template-->
     <link href="~/Theme/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
@@ -35,9 +35,6 @@
                 <div class="sidebar-brand-text mx-3">Bug_Tracker</div>
             </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="/home/Index">
@@ -45,15 +42,6 @@
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-  
 
             <!-- Nav Item - Tickets Menu -->
             <li class="nav-item">
@@ -590,10 +578,14 @@
     <script src="~/Theme/js/demo/chart-area-demo.js"></script>
     <script src="~/Theme/js/demo/chart-pie-demo.js"></script>
     <div class="container">
-</body>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-  <!-- JavaScript Bundle with Popper -->
+
+    <!-- JavaScript DataTable -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+     <!-- JavaScript Bundle with Popper -->
+  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+</body>
 </html>

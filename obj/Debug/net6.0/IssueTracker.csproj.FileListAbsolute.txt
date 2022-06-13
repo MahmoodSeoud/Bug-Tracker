@@ -266,3 +266,5 @@ C:\Users\mahmo\IssueTracker\obj\Debug\net6.0\IssueTracker.dll
 C:\Users\mahmo\IssueTracker\obj\Debug\net6.0\ref\IssueTracker.dll
 C:\Users\mahmo\IssueTracker\obj\Debug\net6.0\IssueTracker.pdb
 C:\Users\mahmo\IssueTracker\obj\Debug\net6.0\IssueTracker.genruntimeconfig.cache
+C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\package-lock.json
+C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\package.json
