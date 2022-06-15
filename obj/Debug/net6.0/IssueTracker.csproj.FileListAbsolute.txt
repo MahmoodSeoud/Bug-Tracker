@@ -241,12 +241,7 @@ C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.D
 C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win-arm\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win-arm64\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
-C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\mahmo\IssueTracker\obj\Debug\net6.0\IssueTracker.csproj.AssemblyReference.cache
 C:\Users\mahmo\IssueTracker\obj\Debug\net6.0\IssueTracker.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mahmo\IssueTracker\obj\Debug\net6.0\IssueTracker.AssemblyInfoInputs.cache
@@ -268,3 +263,8 @@ C:\Users\mahmo\IssueTracker\obj\Debug\net6.0\IssueTracker.pdb
 C:\Users\mahmo\IssueTracker\obj\Debug\net6.0\IssueTracker.genruntimeconfig.cache
 C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\package-lock.json
 C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\package.json
+C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\mahmo\IssueTracker\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
