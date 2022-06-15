@@ -22,14 +22,14 @@ namespace IssueTracker.Controllers
         // GET: Projects
         public async Task<IActionResult> Index()
         {
-            List<TeamMember> team = new List<TeamMember>() { new TeamMember() };
+            //List<TeamMember> team = new List<TeamMember>() { new TeamMember() };
 
-            foreach (TeamMember teamMember in team)
-            {
-                team.Add(teamMember);
-            }
+            //foreach (TeamMember teamMember in team)
+            //{
+            //    team.Add(teamMember);
+            //}
 
-            ViewBag.teamMembers = team;
+            //ViewBag.teamMembers = team;
 
               return _context.Projects != null ? 
                           View(await _context.Projects.ToListAsync()) :
