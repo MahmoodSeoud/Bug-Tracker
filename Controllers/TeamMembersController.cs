@@ -10,88 +10,87 @@ using IssueTracker.Models;
 
 namespace IssueTracker.Controllers
 {
-    public class ProjectsController : Controller
+    public class TeamMembersController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ProjectsController(ApplicationDbContext context)
+        public TeamMembersController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Projects
+        // GET: TeamMembers
         public async Task<IActionResult> Index()
         {
-              return _context.Projects != null ? 
-                          View(await _context.Projects.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Projects'  is null.");
+              return _context.TeamMember != null ? 
+                          View(await _context.TeamMember.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.TeamMember'  is null.");
         }
 
-
-        // GET: Projects/Details/5
+        // GET: TeamMembers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Projects == null)
+            if (id == null || _context.TeamMember == null)
             {
                 return NotFound();
             }
 
-            var projects = await _context.Projects
+            var teamMember = await _context.TeamMember
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (projects == null)
+            if (teamMember == null)
             {
                 return NotFound();
             }
 
-            return View(projects);
+            return View(teamMember);
         }
 
-        // GET: Projects/Create
+        // GET: TeamMembers/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Projects/Create
+        // POST: TeamMembers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ProjectName")] Projects projects)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Email")] TeamMember teamMember)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(projects);
+                _context.Add(teamMember);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(projects);
+            return View(teamMember);
         }
 
-        // GET: Projects/Edit/5
+        // GET: TeamMembers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Projects == null)
+            if (id == null || _context.TeamMember == null)
             {
                 return NotFound();
             }
 
-            var projects = await _context.Projects.FindAsync(id);
-            if (projects == null)
+            var teamMember = await _context.TeamMember.FindAsync(id);
+            if (teamMember == null)
             {
                 return NotFound();
             }
-            return View(projects);
+            return View(teamMember);
         }
 
-        // POST: Projects/Edit/5
+        // POST: TeamMembers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ProjectName")] Projects projects)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email")] TeamMember teamMember)
         {
-            if (id != projects.Id)
+            if (id != teamMember.Id)
             {
                 return NotFound();
             }
@@ -100,12 +99,12 @@ namespace IssueTracker.Controllers
             {
                 try
                 {
-                    _context.Update(projects);
+                    _context.Update(teamMember);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProjectsExists(projects.Id))
+                    if (!TeamMemberExists(teamMember.Id))
                     {
                         return NotFound();
                     }
@@ -116,49 +115,49 @@ namespace IssueTracker.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(projects);
+            return View(teamMember);
         }
 
-        // GET: Projects/Delete/5
+        // GET: TeamMembers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Projects == null)
+            if (id == null || _context.TeamMember == null)
             {
                 return NotFound();
             }
 
-            var projects = await _context.Projects
+            var teamMember = await _context.TeamMember
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (projects == null)
+            if (teamMember == null)
             {
                 return NotFound();
             }
 
-            return View(projects);
+            return View(teamMember);
         }
 
-        // POST: Projects/Delete/5
+        // POST: TeamMembers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Projects == null)
+            if (_context.TeamMember == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Projects'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.TeamMember'  is null.");
             }
-            var projects = await _context.Projects.FindAsync(id);
-            if (projects != null)
+            var teamMember = await _context.TeamMember.FindAsync(id);
+            if (teamMember != null)
             {
-                _context.Projects.Remove(projects);
+                _context.TeamMember.Remove(teamMember);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProjectsExists(int id)
+        private bool TeamMemberExists(int id)
         {
-          return (_context.Projects?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.TeamMember?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

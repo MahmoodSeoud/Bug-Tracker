@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 @model IssueTracker.Models.Projects
+
 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -10,7 +11,7 @@
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
 
-        <a asp-action="Create" class="btn btn-primary "data-toggle="modal" data-target="#CreateNewProjectModal" > <i class="bi bi-plus-circle"></i> &nbsp; Create New Project </a>
+        <a asp-controller="Projects" asp-action="Create" class="btn btn-primary "data-toggle="modal" data-target="#CreateNewProjectModal" > <i class="bi bi-plus-circle"></i> &nbsp; Create New Project </a>
 
     </div>
     <div class="card-body">
@@ -165,8 +166,7 @@
                         </div>
                     </div>
 
-                    
-    <!-- Logout Modal-->
+                      <!-- Logout Modal-->
     <div class="modal fade" id="CreateNewProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -188,13 +188,13 @@
                 <span asp-validation-for="ProjectDescription" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                <label asp-for="teamMembers" class="control-label"></label>
-                @*<select asp-for="teamMembers" class="form-control" asp-items="new SelectList(ViewBag.teamMembers)"> </select>
-                <span asp-validation-for="teamMembers" class="text-danger"></span>*@
+                <label class="control-label">Team Members</label>
+                <select asp-for="teamMembers" class="form-control" asp-items="new SelectList(ViewBag.teamMembers)"> </select>
+                <span asp-validation-for="teamMembers" class="text-danger"></span>
                 </div>
                 <div class="modal-footer">
                     <input type="submit" value="Submit" class="btn btn-success" />
                 </div>
             </div>
         </div>
-    </div>
+    </div> 

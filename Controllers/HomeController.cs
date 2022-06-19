@@ -15,6 +15,7 @@ namespace IssueTracker.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.teamMembers = new List<TeamMember>() { new TeamMember("Mahmood")};  
             return View();
         }
 
