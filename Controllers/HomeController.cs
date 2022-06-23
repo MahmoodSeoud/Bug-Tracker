@@ -1,16 +1,18 @@
-﻿using IssueTracker.Models;
+﻿using IssueTracker.Data;
+using IssueTracker.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace IssueTracker.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -19,10 +21,24 @@ namespace IssueTracker.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public ActionResult Dashboard()
         {
-            return View();
+            ViewBag.title = "Dash Board";
+
+            var model = new DashboardViewModel();
+
+
+            model.NumberOfTickets = _context.Tickets.Count();
+            model.NumberOfTicketsOpen = _context.Tickets.Where(u => u.Status == TicketStatus.Open).Count();
+            model.NumberOfTicketsResolved = _context.Tickets.Where(u => u.Status == TicketStatus.Fixed).Count();
+            model.NumberOfTicketsRejected = _context.Tickets.Where(u => u.Status == TicketStatus.NotGoingToFix).Count();
+
+            return View(model);
+
+
         }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
