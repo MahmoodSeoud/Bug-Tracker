@@ -133,12 +133,12 @@
        <div class="modal-body">  
                                     <form>  
                                         <div class="form-group">
-                                        <label asp-for="ProjectName" class="modal-body-control-label"></label>
+                                        <label asp-for="ProjectName" class="modal-body-control-label">Project Name</label>
                                         <input asp-for="ProjectName" class="form-control" />
                                         <span asp-validation-for="ProjectName" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                        <label asp-for="ProjectDescription" class="modal-body-control-label"></label>
+                                        <label asp-for="ProjectDescription" class="modal-body-control-label">Project Description</label>
                                         <input asp-for="ProjectDescription" class="form-control" />
                                         <span asp-validation-for="ProjectDescription" class="text-danger"></span>
                                         </div>
@@ -148,6 +148,9 @@
                                         <span asp-validation-for="teamMembers" class="text-danger"></span>
                                         </div>
                                     </form>  
+                                  <div class="modal-footer">
+                                    <input type="submit" value="Create" class="btn btn-success" />
+                                </div>
                                 </div> 
             </div>
         </div>
