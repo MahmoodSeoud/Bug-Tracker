@@ -3,6 +3,7 @@ using IssueTracker.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Dynamic;
 
 namespace IssueTracker.Controllers
 {
@@ -17,7 +18,19 @@ namespace IssueTracker.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.teamMembers = new List<TeamMember>() { new TeamMember("Mahmood")};  
+            var model = _context.TeamMember;
+
+            List<string> names = new List<string>();
+            if (model != null)
+            {
+                foreach(var user in model)
+                {
+                    names.Add(user.FirstName);
+                }
+            }
+            else { names = new List<string>(); }
+
+            ViewBag.teamMembers = names;
             return View();
         }
 
@@ -34,8 +47,6 @@ namespace IssueTracker.Controllers
             model.NumberOfTicketsRejected = _context.Tickets.Where(u => u.Status == TicketStatus.NotGoingToFix).Count();
 
             return View(model);
-
-
         }
 
 
