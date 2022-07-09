@@ -131,7 +131,7 @@
                     </button>
                 </div>
        <div class="modal-body">  
-                                    <form asp-action="Create    ">  
+                                    <form>  
                                         <div class="form-group">
                                         <label asp-for="ProjectName" class="modal-body-control-label">Project Name</label>
                                         <input asp-for="ProjectName" class="form-control" />
@@ -144,8 +144,8 @@
                                         </div>
                                         <div class="form-group">
                                         <label class="control-label">Team Members</label>
-                                        <select asp-for="teamMembers" class="form-control" asp-items="new SelectList(ViewBag.teamMembers)"> </select>
-                                        <span asp-validation-for="teamMembers" class="text-danger"></span>
+                                        <select asp-for="TeamMembers" class="form-control" asp-items="new SelectList(ViewBag.teamMembers)"> </select>
+                                        <span asp-validation-for="TeamMembers" class="text-danger"></span>
                                         </div>
                                     <input type="submit" value="Create" class="btn btn-success" />
                                     </form>  

@@ -106,13 +106,13 @@ namespace IssueTracker.Migrations
             modelBuilder.Entity("IssueTracker.Models.TeamMember", b =>
                 {
                     b.HasOne("IssueTracker.Models.Projects", null)
-                        .WithMany("teamMembers")
+                        .WithMany("TeamMembers")
                         .HasForeignKey("ProjectsId");
                 });
 
             modelBuilder.Entity("IssueTracker.Models.Projects", b =>
                 {
-                    b.Navigation("teamMembers");
+                    b.Navigation("TeamMembers");
                 });
 #pragma warning restore 612, 618
         }

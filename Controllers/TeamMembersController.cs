@@ -22,9 +22,12 @@ namespace IssueTracker.Controllers
         // GET: TeamMembers
         public async Task<IActionResult> Index()
         {
-              return _context.TeamMember != null ? 
-                          View(await _context.TeamMember.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.TeamMember'  is null.");
+            return View(await _context.TeamMember.ToListAsync());
+        }
+
+        public IActionResult ShowTeamMembers(List<TeamMember> teamMembers)
+        {
+            return View(teamMembers);
         }
 
         // GET: TeamMembers/Details/5

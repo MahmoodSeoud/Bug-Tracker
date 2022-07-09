@@ -22,9 +22,9 @@ namespace IssueTracker.Controllers
         // GET: Projects
         public async Task<IActionResult> Index()
         {
-              return _context.Projects != null ? 
-                          View(await _context.Projects.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Projects'  is null.");
+            var data = await _context.Projects.AsNoTracking().Include(options => options.TeamMembers).ToListAsync();
+            
+            return View(data);
         }
 
 
@@ -57,11 +57,11 @@ namespace IssueTracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ProjectName")] Projects projects)
+        public async Task<IActionResult> Create(Projects projects)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(projects);
+                _context.Projects.Add(projects);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -69,13 +69,8 @@ namespace IssueTracker.Controllers
         }
 
         // GET: Projects/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null || _context.Projects == null)
-            {
-                return NotFound();
-            }
-
             var projects = await _context.Projects.FindAsync(id);
             if (projects == null)
             {

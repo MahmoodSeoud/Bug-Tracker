@@ -14,10 +14,10 @@ namespace IssueTracker.Data
         {
         }
 
-        public DbSet<IssueTracker.Models.Tickets>? Tickets { get; set; }
+        public DbSet<Tickets> Tickets => Set<Tickets>();
 
-        public DbSet<IssueTracker.Models.Projects>? Projects { get; set; }
+        public DbSet<Projects> Projects => Set<Projects>();
 
-        public DbSet<IssueTracker.Models.TeamMember>? TeamMember { get; set; }
+        public DbSet<TeamMember> TeamMember => Set<TeamMember>();
     }
 }

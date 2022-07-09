@@ -4,11 +4,11 @@
     {
         public int Id { get; set; }
 
-        public string ProjectName { get; set; }
+        public string ProjectName { get; set; } = default!;
 
-        public string ProjectDescription { get; set; }
+        public string ProjectDescription { get; set; } = default!;
 
-        public List<TeamMember> teamMembers { get; set; }
+        public List<TeamMember> TeamMembers { get; set; } = new List<TeamMember>();
 
 
     }
