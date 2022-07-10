@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using IssueTracker.Models;
 using Microsoft.EntityFrameworkCore;
-using IssueTracker.Models;
 
 namespace IssueTracker.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext (DbContextOptions<ApplicationDbContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }

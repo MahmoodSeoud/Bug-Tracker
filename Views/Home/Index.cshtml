@@ -13,7 +13,7 @@
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
 
-        <a asp-controller="Projects" asp-action="Create" class="btn btn-primary "data-toggle="modal" data-target="#CreateNewProjectModal" > <i class="bi bi-plus-circle"></i> &nbsp; Create New Project </a>
+       <a onclick="showInPopup('@Url.Action("Create",null,null,Context.Request.Scheme)', 'Add new Project')" class="btn btn-primary bi bi-plus-circle"></i> &nbsp; Create New Project</a>
 
     </div>
     <div class="card-body">
@@ -111,7 +111,7 @@
 
             </div>
         </div>
-
+@*
             <!-- Create Project Modal-->
 <div class="modal fade" id="CreateNewProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -135,9 +135,9 @@
                             <input asp-for="ProjectDescription" class="form-control" />
                             <span asp-validation-for="ProjectDescription" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                                <div class="form-group">
                             <label class="control-label">Team Members</label>
-                            <select asp-for="TeamMembers" class="form-control" asp-items="new SelectList(ViewBag.teamMembers)"> </select>
+                            <select asp-for="TeamMembers" class="form-control" asp-items="new SelectList(@ViewBag.teamMembers)"> </select>
                             <span asp-validation-for="TeamMembers" class="text-danger"></span>
                             </div>
                         <input type="submit" value="Create" class="btn btn-success" />
@@ -147,4 +147,4 @@
                     </div> 
 </div>
     </div>
-</div> 
+</div> *@

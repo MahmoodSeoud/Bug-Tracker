@@ -9,7 +9,5 @@
         public string ProjectDescription { get; set; } = default!;
 
         public List<TeamMember> TeamMembers { get; set; } = new List<TeamMember>();
-
-
     }
 }

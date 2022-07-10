@@ -1,9 +1,7 @@
 ﻿using IssueTracker.Data;
 using IssueTracker.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using System.Dynamic;
 
 namespace IssueTracker.Controllers
 {
@@ -17,13 +15,17 @@ namespace IssueTracker.Controllers
         }
 
         public IActionResult Index()
+        { 
+            return View();
+        }
+        public IActionResult Create()
         {
             var model = _context.TeamMember;
 
             List<string> names = new List<string>();
             if (model != null)
             {
-                foreach(var user in model)
+                foreach (var user in model)
                 {
                     names.Add(user.FirstName);
                 }
@@ -31,15 +33,35 @@ namespace IssueTracker.Controllers
             else { names = new List<string>(); }
 
             ViewBag.teamMembers = names;
+
             return View();
         }
+
+
+        // POST: Projects/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Projects projects)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Projects.Add(projects);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(projects);
+        }
+
+
 
         public ActionResult Dashboard()
         {
             ViewBag.title = "Dash Board";
 
             var model = new DashboardViewModel();
-
 
             model.NumberOfTickets = _context.Tickets.Count();
             model.NumberOfTicketsOpen = _context.Tickets.Where(u => u.Status == TicketStatus.Open).Count();
@@ -48,8 +70,6 @@ namespace IssueTracker.Controllers
 
             return View(model);
         }
-
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

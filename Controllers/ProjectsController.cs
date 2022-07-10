@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using IssueTracker.Data;
+﻿using IssueTracker.Data;
 using IssueTracker.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace IssueTracker.Controllers
 {
@@ -23,10 +18,9 @@ namespace IssueTracker.Controllers
         public async Task<IActionResult> Index()
         {
             var data = await _context.Projects.AsNoTracking().Include(options => options.TeamMembers).ToListAsync();
-            
+
             return View(data);
         }
-
 
         // GET: Projects/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -49,6 +43,20 @@ namespace IssueTracker.Controllers
         // GET: Projects/Create
         public IActionResult Create()
         {
+            var model = _context.TeamMember;
+
+            List<string> names = new List<string>();
+            if (model != null)
+            {
+                foreach (var user in model)
+                {
+                    names.Add(user.FirstName);
+                }
+            }
+            else { names = new List<string>(); }
+
+            ViewBag.teamMembers = names;
+
             return View();
         }
 
@@ -65,6 +73,9 @@ namespace IssueTracker.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+
+
             return View(projects);
         }
 
@@ -146,14 +157,14 @@ namespace IssueTracker.Controllers
             {
                 _context.Projects.Remove(projects);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProjectsExists(int id)
         {
-          return (_context.Projects?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Projects?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using IssueTracker.Data;
+﻿using IssueTracker.Data;
 using IssueTracker.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace IssueTracker.Controllers
 {
@@ -22,9 +17,9 @@ namespace IssueTracker.Controllers
         // GET: Tickets
         public async Task<IActionResult> Index()
         {
-              return _context.Tickets != null ? 
-                          View(await _context.Tickets.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Tickets'  is null.");
+            return _context.Tickets != null ?
+                        View(await _context.Tickets.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Tickets'  is null.");
         }
 
         // GET: Tickets/ShowSearchForm
@@ -171,14 +166,14 @@ namespace IssueTracker.Controllers
             {
                 _context.Tickets.Remove(tickets);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TicketsExists(int id)
         {
-          return (_context.Tickets?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Tickets?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

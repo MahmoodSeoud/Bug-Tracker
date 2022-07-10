@@ -10,7 +10,10 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-        <a asp-action="Create" class="btn btn-primary <i class="bi bi-plus-circle"></i> &nbsp; Create New Project </a>
+
+       <a onclick="showInPopup('@Url.Action("Create",null,null,Context.Request.Scheme)', 'Add new Project')" class="btn btn-primary bi bi-plus-circle"> &nbsp; Create New Project</a>
+
+
 
 
 <div class="card-body">
@@ -53,7 +56,7 @@
                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary"> <i class="bi bi-three-dots-vertical"></i>Details</a> 
                 &nbsp;
                 &nbsp;
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="bi bi-trash3"></i>Delete</a>
+                <a onclick="showInPopup('@Url.Action("Delete",null,null,Context.Request.Scheme)', 'Delete')" class="btn btn-primary bi bi-plus-circle"> &nbsp; Delete Project</a>
                 </div>
             </td>
         </tr>

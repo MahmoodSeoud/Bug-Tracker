@@ -26,7 +26,6 @@
                 font-weight: 700;
             }
         }
-
         // Accordion
         .collapse {
             position: absolute;
@@ -173,13 +172,16 @@
         margin-bottom: 1rem;
         padding: 1rem;
         background-color: fade-out($black, 0.9);
+
         .sidebar-card-illustration {
             height: 3rem;
             display: block;
         }
+
         .sidebar-card-title {
             font-weight: bold;
         }
+
         p {
             font-size: 0.75rem;
             color: fade-out($white, 0.5);
@@ -192,7 +194,6 @@
         width: $sidebar-base-width !important;
 
         .nav-item {
-
             // Accordion
             .collapse {
                 position: relative;
@@ -233,7 +234,6 @@
                     font-size: 0.85rem;
                     display: inline;
                 }
-
                 // Accordion Arrow Icon
                 &[data-toggle="collapse"] {
                     &::after {
@@ -273,7 +273,6 @@
             width: $sidebar-collapsed-width !important;
 
             .nav-item {
-
                 // Accordion
                 .collapse {
                     position: absolute;
@@ -375,7 +374,6 @@
                     color: $gray-700;
                 }
             }
-
             // Accordion
             &[data-toggle="collapse"]::after {
                 color: $gray-500;
@@ -392,7 +390,6 @@
             }
         }
     }
-
     // Color the sidebar toggler
     #sidebarToggle {
         background-color: $gray-200;
@@ -438,7 +435,6 @@
                     color: $white;
                 }
             }
-
             // Accordion
             &[data-toggle="collapse"]::after {
                 color: fade-out($white, 0.5);
@@ -455,7 +451,6 @@
             }
         }
     }
-
     // Color the sidebar toggler
     #sidebarToggle {
         background-color: fade-out($white, 0.8);

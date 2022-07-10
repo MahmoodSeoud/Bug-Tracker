@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-namespace IssueTracker.Models
+﻿namespace IssueTracker.Models
 {
     public class DashboardViewModel
     {
-
         public int NumberOfProjects { get; set; }
         public int NumberOfTickets { get; set; }
         public int NumberOfTicketsOpen { get; set; }
@@ -14,8 +9,5 @@ namespace IssueTracker.Models
         public int NumberOfTicketsRejected { get; set; }
         public int NumberOfTicketsCreated { get; set; }
         public int NumberOfTicketsAssigned { get; set; }
-
-
-        }
     }
-
+}
