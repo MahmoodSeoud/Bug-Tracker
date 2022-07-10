@@ -4,14 +4,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Projects</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
+  <!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+        <a asp-action="Create" class="btn btn-primary"> <i class="bi bi-plus-circle"></i> &nbsp; Create New Project</a>
+
+<div class="card-body">
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                  <tr>
             <th>
                 @Html.DisplayNameFor(model => model.ProjectName)
             </th>
@@ -24,10 +29,9 @@
       
             <th></th>
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
+        </thead>
+        @foreach (var item in Model) {
+           <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ProjectName)
             </td>
@@ -37,15 +41,23 @@
             </td>
 
             <td>
-               <a asp-controller="TeamMembers" asp-action="Index" asp-route-teamMembers="@item.TeamMembers">View</a> 
+               <a asp-controller="TeamMembers" asp-action="Index" asp-route-teamMembers="@item.TeamMembers" class="btn btn-secondary">View</a> 
             </td>
 
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+             <td>
+                <div class="w-75 btn-group" role="group"> 
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"> <i class="bi bi-pencil-square"></i> Edit</a>
+                &nbsp;
+                &nbsp;
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary"> <i class="bi bi-three-dots-vertical"></i>Details</a> 
+                &nbsp;
+                &nbsp;
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="bi bi-trash3"></i>Delete</a>
+                </div>
             </td>
         </tr>
-}
-    </tbody>
-</table>
+        }
+    </table>
+</div>
+</div>
+</div>
