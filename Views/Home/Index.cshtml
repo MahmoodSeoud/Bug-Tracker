@@ -49,109 +49,102 @@
         </div>
     </div>
 </div>
+<!-- Content Row -->
+    <div class="col">
 
-                    
-
-                    <!-- Content Row -->
-                     <div class="col">
-
-                               <!-- Pie Chart -->
-                        <div class="col-xl-3 col-lg-3">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Open Tickets</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                     </div>
-
-
-                  
-                       
-                     
-                  
-
-                    <!-- Content Row -->
-                    <div class="row">
-                      
-
-                        <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
-
-                         
-                            </div>
-
-                        </div>
+            <!-- Pie Chart -->
+    <div class="col-xl-3 col-lg-3">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div
+                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">My Team's Tickets</h6>
+                <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                        aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Dropdown Header:</div>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-
-                      <!-- Create Project Modal-->
-            <div class="modal fade" id="CreateNewProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add New Project</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
                 </div>
-       <div class="modal-body">  
-                                    <form>  
-                                        <div class="form-group">
-                                        <label asp-for="ProjectName" class="modal-body-control-label">Project Name</label>
-                                        <input asp-for="ProjectName" class="form-control" />
-                                        <span asp-validation-for="ProjectName" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-                                        <label asp-for="ProjectDescription" class="modal-body-control-label">Project Description</label>
-                                        <input asp-for="ProjectDescription" class="form-control" />
-                                        <span asp-validation-for="ProjectDescription" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-                                        <label class="control-label">Team Members</label>
-                                        <select asp-for="TeamMembers" class="form-control" asp-items="new SelectList(ViewBag.teamMembers)"> </select>
-                                        <span asp-validation-for="TeamMembers" class="text-danger"></span>
-                                        </div>
-                                    <input type="submit" value="Create" class="btn btn-success" />
-                                    </form>  
-                                  <div class="modal-footer">
-                                </div>
-                                </div> 
+            </div>
+
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart"></canvas>
+                </div>
+                <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                        <i class="fas fa-circle text-primary"></i> Open
+                    </span>
+                    <span class="mr-2">
+                        <i class="fas fa-circle text-success"></i> Closed
+                    </span>
+                    <span class="mr-2">
+                        <i class="fas fa-circle text-info"></i> Fixed
+                    </span>
+                     <span class="mr-2">
+                        <i class="fas fa-circle text-secondary"></i> Not Fixed
+                    </span>
+                </div>
             </div>
         </div>
-    </div> 
+    </div>
+
+    </div>
+
+        <!-- Content Row -->
+        <div class="row">
+
+            <!-- Content Column -->
+            <div class="col-lg-6 mb-4">
+
+                         
+                </div>
+
+            </div>
+        </div>
+
+            <!-- Create Project Modal-->
+<div class="modal fade" id="CreateNewProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Project</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+<div class="modal-body">  
+                        <form asp-controller="Projects" asp-action="Create">  
+                            <div class="form-group">
+                            <label asp-for="ProjectName" class="modal-body-control-label">Project Name</label>
+                            <input asp-for="ProjectName" class="form-control" />
+                            <span asp-validation-for="ProjectName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                            <label asp-for="ProjectDescription" class="modal-body-control-label">Project Description</label>
+                            <input asp-for="ProjectDescription" class="form-control" />
+                            <span asp-validation-for="ProjectDescription" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                            <label class="control-label">Team Members</label>
+                            <select asp-for="TeamMembers" class="form-control" asp-items="new SelectList(ViewBag.teamMembers)"> </select>
+                            <span asp-validation-for="TeamMembers" class="text-danger"></span>
+                            </div>
+                        <input type="submit" value="Create" class="btn btn-success" />
+                        </form>  
+                        <div class="modal-footer">
+                    </div>
+                    </div> 
+</div>
+    </div>
+</div> 
