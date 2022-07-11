@@ -27,7 +27,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">My Tickets</h6>
-                           <a asp-action="Create" class="btn btn-primary"> <i class="bi bi-plus-circle"></i> &nbsp; Create New Ticket</a>
+                           <a onClick="showInPopup('@Url.Action("AddOrEdit", "Tickets", null, Context.Request.Scheme)', 'New Tickets')" class="btn btn-primary"> <i class="bi bi-plus-circle"></i> &nbsp; Create New Ticket</a>
              
                         <div class="card-body">
                             <div class="table-responsive">

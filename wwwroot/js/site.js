@@ -13,24 +13,11 @@ showInPopup = (url, title) => {
         type: "GET",
         url: url,
         success: function (res) {
-            $('#CreateNewProjectModal .modal-body').html(res);
-            $('#CreateNewProjectModal .modal-title').html(title);
-            $('#CreateNewProjectModal').modal('show');
+            $('#form-modal .modal-body').html(res);
+            $('#form-modal .modal-title').html(title);
+            $('#form-modal').modal('show');
         }
     })
 
 }
 
-
-showInPopup = (url, title) => {
-    $.ajax({
-        type: "GET",
-        url: url,
-        success: function (res) {
-            $('#DeleteNewProjectModal .modal-body').html(res);
-            $('#DeleteNewProjectModal .modal-title').html(title);
-            $('#DeleteNewProjectModal').modal('show');
-        }
-    })
-
-}

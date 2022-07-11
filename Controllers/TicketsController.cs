@@ -22,45 +22,25 @@ namespace IssueTracker.Controllers
                         Problem("Entity set 'ApplicationDbContext.Tickets'  is null.");
         }
 
-        // GET: Tickets/ShowSearchForm
-        public async Task<IActionResult> ShowSearchForm()
-        {
-            return View();
-        }
 
-        // POST: ShowSearchResults
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ShowSearchResults(string SearchSubject, string SearchStatus, string SearchDate)
-        {
-            return _context.Tickets != null ?
-                      View("Index", await _context.Tickets.Where(j => j.Subject.Contains(SearchSubject) || j.Date.ToString().Contains(SearchDate) || j.Status.Equals(SearchStatus)).ToListAsync()) :
-                      Problem("Entity set 'ApplicationDbContext.Joke'  is null.");
-        }
 
-        // GET: Tickets/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Tickets == null)
-            {
-                return NotFound();
-            }
-
-            var tickets = await _context.Tickets
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (tickets == null)
-            {
-                return NotFound();
-            }
-
-            return View(tickets);
-        }
-
-        // GET: Tickets/Create
-        public IActionResult Create()
+        // GET: Tickets/AddOrEdit
+        public async Task<IActionResult> AddOrEdit(int? id=0)
         {
             ViewBag.Status = new List<TicketStatus>() { TicketStatus.Open, TicketStatus.Closed, TicketStatus.Fixed, TicketStatus.NotGoingToFix };
-            return View();
+            if (id == 0)
+            {
+                return View(); 
+            }
+            else
+            {
+                var tickets = await _context.Tickets.FindAsync(id);
+                if (tickets == null)
+                {
+                    return NotFound();
+                }
+                return View(tickets);
+            }
         }
 
         // POST: Tickets/Create

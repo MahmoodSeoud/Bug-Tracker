@@ -1,0 +1,67 @@
+﻿@model IssueTracker.Models.Tickets
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="row">
+                <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Status" class="control-label"></label>
+                                <div class="input-gropup">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="bi bi-journal-x"></i></div>
+                                        <select asp-for="Status" class="form-control" asp-items="new SelectList(ViewBag.Status)"> </select>
+                                    </div>
+                                </div>
+                                <span asp-validation-for="Status" class="text-danger"></span>
+                            </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                                <div class="form-group">
+                                <label asp-for="Subject" class="control-label"></label>
+                                <input asp-for="Subject" class="form-control" />
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+                </div>
+            </div>
+
+                 <div class="row">
+                <div class="col-md-6">
+                         <div class="form-group">
+                                    <label asp-for="WorkDescription" class="control-label"></label>
+                                    <input asp-for="WorkDescription" class="form-control" />
+                                    <span asp-validation-for="WorkDescription" class="text-danger"></span>
+                                </div>
+                </div>
+            </div>
+                  <div class="row">
+                <div class="col-md-6">
+                            <div class="form-group">
+                                        <label asp-for="Date" class="control-label"></label>
+                                        <input asp-for="Date" class="form-control" />
+                                        <span asp-validation-for="Date" class="text-danger"></span>
+                                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
