@@ -22,15 +22,13 @@ namespace IssueTracker.Controllers
                         Problem("Entity set 'ApplicationDbContext.Tickets'  is null.");
         }
 
-
-
         // GET: Tickets/AddOrEdit
-        public async Task<IActionResult> AddOrEdit(int? id=0)
+        public async Task<IActionResult> AddOrEdit(int? id = 0)
         {
             ViewBag.Status = new List<TicketStatus>() { TicketStatus.Open, TicketStatus.Closed, TicketStatus.Fixed, TicketStatus.NotGoingToFix };
             if (id == 0)
             {
-                return View(); 
+                return View();
             }
             else
             {

@@ -7,7 +7,6 @@ $(document).ready(function () {
     $('#dataTable').DataTable();
 });
 
-
 showInPopup = (url, title) => {
     $.ajax({
         type: "GET",
@@ -18,6 +17,4 @@ showInPopup = (url, title) => {
             $('#form-modal').modal('show');
         }
     })
-
 }
-
