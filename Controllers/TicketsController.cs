@@ -2,6 +2,7 @@
 using IssueTracker.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using IssueTracker.Models;
 
 namespace IssueTracker.Controllers
 {
@@ -28,7 +29,7 @@ namespace IssueTracker.Controllers
             ViewBag.Status = new List<TicketStatus>() { TicketStatus.Open, TicketStatus.Closed, TicketStatus.Fixed, TicketStatus.NotGoingToFix };
             if (id == 0)
             {
-                return View();
+                return View(new Tickets());
             }
             else
             {
@@ -41,75 +42,47 @@ namespace IssueTracker.Controllers
             }
         }
 
-        // POST: Tickets/Create
+
+
+        // POST: Tickets/AddOrEdit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Status,Subject,WorkDescription,Date")] Tickets tickets)
+        public async Task<IActionResult> AddOrEdit(int id, [Bind("Id,Status,Subject,WorkDescription,Date")] Tickets tickets)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(tickets);
-                await _context.SaveChangesAsync();
-                TempData["success"] = "";
-                return RedirectToAction(nameof(Index));
-            }
-
-            ViewBag.Status = new List<TicketStatus>() { TicketStatus.Open, TicketStatus.Closed, TicketStatus.Fixed, TicketStatus.NotGoingToFix };
-
-            return View(tickets);
-        }
-
-        // GET: Tickets/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Tickets == null)
-            {
-                return NotFound();
-            }
-
-            var tickets = await _context.Tickets.FindAsync(id);
-            if (tickets == null)
-            {
-                return NotFound();
-            }
-            return View(tickets);
-        }
-
-        // POST: Tickets/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Status,Subject,WorkDescription,Date")] Tickets tickets)
-        {
-            if (id != tickets.Id)
-            {
-                return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
-                try
+                if (id == 0)
                 {
-                    _context.Update(tickets);
+                    _context.Add(tickets);
                     await _context.SaveChangesAsync();
+                    TempData["success"] = "";
                 }
-                catch (DbUpdateConcurrencyException)
+
+                else
                 {
-                    if (!TicketsExists(tickets.Id))
+                    try
                     {
-                        return NotFound();
+                        _context.Update(tickets);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!TicketsExists(tickets.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
                 }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(tickets);
+                return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_ViewAll", _context.Tickets.ToList())});
+              }
+            return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "AddOrEdit", tickets) });
         }
 
         // GET: Tickets/Delete/5
