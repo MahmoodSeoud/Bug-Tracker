@@ -19,6 +19,7 @@ namespace IssueTracker.Models
         [DisplayName("Work Description")]
         public string WorkDescription { get; set; }
 
+        [DisplayFormat(DataFormatString ="{0:dd/MM/yyy}")]
         public DateTime Date { get; set; } = DateTime.Now;
 
         public int? AssignedUserId { get; set; }

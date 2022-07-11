@@ -85,24 +85,6 @@ namespace IssueTracker.Controllers
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "AddOrEdit", tickets) });
         }
 
-        // GET: Tickets/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Tickets == null)
-            {
-                return NotFound();
-            }
-
-            var tickets = await _context.Tickets
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (tickets == null)
-            {
-                return NotFound();
-            }
-
-            return View(tickets);
-        }
-
         // POST: Tickets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -119,7 +101,7 @@ namespace IssueTracker.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Json(new {html = Helper.RenderRazorViewToString(this, "_ViewAll", _context.Tickets.ToList()) });
         }
 
         private bool TicketsExists(int id)
